@@ -19,6 +19,18 @@ export const GlobalStyle = createGlobalStyle`
   h5,
   h6 {
     color: inherit;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+
+  h1 {
+    @media only all {
+      font-size: 56px;
+    }
+    @media only screen and (min-width: 768px) {
+      font-size: 80px;
+    }
   }
 
   p {
