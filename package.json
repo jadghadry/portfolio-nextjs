@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "antd": "^4.19.3",
     "babel-preset-next": "^1.4.0",
     "install": "^0.13.0",
     "lodash": "^4.17.21",
