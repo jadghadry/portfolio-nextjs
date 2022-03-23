@@ -3,19 +3,21 @@ import { GraphQLClient } from "graphql-request";
 import type { GetStaticProps, NextPage } from "next";
 import { CardService } from "_/components/cards/CardService";
 import { FlexContainer } from "_/components/FlexContainer";
+import { Footer } from "_/components/Footer";
 import { Heading } from "_/components/Heading";
 import { Timeline } from "_/components/Timeline";
-import { Service, TimelineEntry } from "_/types/global";
+import { Service, SocialMedialLink, TimelineEntry } from "_/types/global";
 import { OverlayedParallax } from "_/wrappers/OverlayedParallax";
 import { ResponsiveContainer } from "_/wrappers/ResponsiveContainer";
 
 type IndexProps = {
     educationEntries: TimelineEntry[];
     services: Service[];
+    socialMediaLinks: SocialMedialLink[];
     workEntries: TimelineEntry[];
 };
 
-const Index: NextPage<IndexProps> = ({ educationEntries, services, workEntries }: IndexProps) => {
+const Index: NextPage<IndexProps> = ({ educationEntries, services, socialMediaLinks, workEntries }: IndexProps) => {
     return (
         <>
             <section id="landing">
@@ -108,6 +110,7 @@ const Index: NextPage<IndexProps> = ({ educationEntries, services, workEntries }
                     </Row>
                 </ResponsiveContainer>
             </section>
+            <Footer links={socialMediaLinks} />
         </>
     );
 };
@@ -115,7 +118,7 @@ const Index: NextPage<IndexProps> = ({ educationEntries, services, workEntries }
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
     const endpoint = `https://api-eu-central-1.graphcms.com/v2/cl13cmj6pbn7001yw1nlka2qd/master`;
     const graphcms = new GraphQLClient(endpoint);
-    const { educationEntries, services, workEntries } = await graphcms.request(
+    const { educationEntries, services, socialMediaLinks, workEntries } = await graphcms.request(
         `
         {
             educationEntries(orderBy:startDate_DESC) {
@@ -130,6 +133,11 @@ export const getStaticProps: GetStaticProps<IndexProps> = async () => {
                 icon
                 id
                 title
+            }
+            socialMediaLinks {
+                icon
+                id
+                url
             }
             workEntries(orderBy:startDate_DESC) {
                 bulletPoints
@@ -146,6 +154,7 @@ export const getStaticProps: GetStaticProps<IndexProps> = async () => {
         props: {
             educationEntries,
             services,
+            socialMediaLinks,
             workEntries,
         },
     };

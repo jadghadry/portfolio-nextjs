@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { FlexContainer } from "../FlexContainer";
 
 /**
- * Styles Components
+ * Styled Components
  */
+
 const Icon = styled(FlexContainer)`
     background-color: #f5f5f5;
     border-radius: 50%;
@@ -12,6 +13,7 @@ const Icon = styled(FlexContainer)`
     width: 88px;
     transition: 0.25s all ease-in-out;
 `;
+
 const Container = styled(FlexContainer)`
     background-color: #fff;
     box-shadow: #00000010 0px 0px 20px;
