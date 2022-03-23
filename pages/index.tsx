@@ -41,7 +41,27 @@ const Index: NextPage<IndexProps> = ({ educationEntries, services, workEntries }
                         />
                     </FlexContainer>
                 </OverlayedParallax>
-                <ResponsiveContainer></ResponsiveContainer>
+                <ResponsiveContainer>
+                    <FlexContainer
+                        centered
+                        flexDirection="column"
+                        spacing="24px"
+                        style={{
+                            textAlign: "center",
+                        }}
+                    >
+                        <div>
+                            Enthusiastic software engineer with a monstrous drive for developing innovative programs
+                            that highlight the effectiveness and efficiency of organizational success. Well-versed and
+                            updated in technology as well as writing code to create reliable, user-friendly systems.
+                        </div>
+                        <div>
+                            Skilled leader who has the proven ability to motivate, educate, and manage a team to build
+                            software programs and closely monitor changes using versioning tools. Confident communicator
+                            and critical thinker with a hawk-eye for the sharpest of details and intricacies.
+                        </div>
+                    </FlexContainer>
+                </ResponsiveContainer>
             </section>
             <section id="resume">
                 <OverlayedParallax backgroundImage="https://source.unsplash.com/bUpwY7EdrlQ/2400x1600">
