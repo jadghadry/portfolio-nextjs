@@ -1,10 +1,22 @@
-import type { NextPage } from "next";
+import { Col, Row } from "antd";
+import { GraphQLClient } from "graphql-request";
+import type { GetStaticProps, NextPage } from "next";
+import { CardService } from "_/components/cards/CardService";
 import { FlexContainer } from "_/components/FlexContainer";
 import { Heading } from "_/components/Heading";
 import { OverlayedParallax } from "_/wrappers/OverlayedParallax";
 import { ResponsiveContainer } from "_/wrappers/ResponsiveContainer";
 
-const Index: NextPage = () => {
+type IndexProps = {
+  services: {
+    description: string;
+    icon: string;
+    id: string;
+    title: string;
+  }[];
+};
+
+const Index: NextPage<IndexProps> = ({ services }: IndexProps) => {
   return (
     <>
       <section id="landing">
@@ -56,10 +68,43 @@ const Index: NextPage = () => {
             />
           </FlexContainer>
         </OverlayedParallax>
-        <ResponsiveContainer></ResponsiveContainer>
+        <ResponsiveContainer>
+          <Row align="middle" gutter={[32, 32]}>
+            {services?.map((service) => {
+              return (
+                <Col key={service.id} xs={24} md={12} xl={8}>
+                  <CardService description={service.description} title={service.title} />
+                </Col>
+              );
+            })}
+          </Row>
+        </ResponsiveContainer>
       </section>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps<IndexProps> = async () => {
+  const endpoint = `https://api-eu-central-1.graphcms.com/v2/cl13cmj6pbn7001yw1nlka2qd/master`;
+  const graphcms = new GraphQLClient(endpoint);
+  const { services } = await graphcms.request(
+    `
+    {
+      services {
+        description
+        icon
+        id
+        title
+      }
+    }
+		`
+  );
+
+  return {
+    props: {
+      services,
+    },
+  };
 };
 
 export default Index;
