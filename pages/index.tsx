@@ -60,7 +60,7 @@ const Index: NextPage<IndexProps> = ({ educationEntries, services, workEntries }
                             <Timeline data={workEntries} icon="fas fa-briefcase" title="Work" />
                         </Col>
                         <Col xs={24} lg={12}>
-                            <Timeline data={workEntries} icon="fas fa-graduation-cap" title="Education" />
+                            <Timeline data={educationEntries} icon="fas fa-graduation-cap" title="Education" />
                         </Col>
                     </Row>
                 </ResponsiveContainer>
