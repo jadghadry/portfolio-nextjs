@@ -11,7 +11,8 @@ export const RESPONSIVE_PADDING: ResponsivePadding = {
     xs: "32px",
     md: "64px",
     lg: "120px",
-    xl: "200px",
+    xl: "180px",
+    xxl: "240px",
   },
   vertical: {
     xs: "96px",
