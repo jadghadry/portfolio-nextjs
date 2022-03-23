@@ -69,11 +69,11 @@ const Index: NextPage<IndexProps> = ({ services }: IndexProps) => {
           </FlexContainer>
         </OverlayedParallax>
         <ResponsiveContainer>
-          <Row align="middle" gutter={[32, 32]}>
+          <Row align="stretch" gutter={[32, 32]}>
             {services?.map((service) => {
               return (
                 <Col key={service.id} xs={24} md={12} xl={8}>
-                  <CardService description={service.description} title={service.title} />
+                  <CardService {...service} />
                 </Col>
               );
             })}
