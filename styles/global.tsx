@@ -37,6 +37,13 @@ export const GlobalStyle = createGlobalStyle`
   h2 {
     font-weight: 700;
     @media only all {
+      font-size: 40px;
+    }
+  }
+
+  h3 {
+    font-weight: 700;
+    @media only all {
       font-size: 24px;
     }
   }

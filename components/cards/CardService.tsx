@@ -48,7 +48,7 @@ export const CardService = ({ description, icon, title }: CardServiceProps) => {
         </Icon>
       )}
       <FlexContainer centered flexDirection="column" spacing="12px">
-        <h2>{title}</h2>
+        <h3>{title}</h3>
         <p>{description}</p>
       </FlexContainer>
     </Container>
