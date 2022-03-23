@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background-color: #f5f5f5;
     font-family: Avenir Next, sans-serif;
     font-size: 16px;
   }
@@ -20,8 +21,8 @@ export const GlobalStyle = createGlobalStyle`
   h6 {
     color: inherit;
     font-family: "Rajdhani", sans-serif;
-    font-weight: 500;
     line-height: 1.25;
+    margin: 0px;
   }
 
   h1 {
@@ -30,6 +31,13 @@ export const GlobalStyle = createGlobalStyle`
     }
     @media only screen and (min-width: 768px) {
       font-size: 80px;
+    }
+  }
+
+  h2 {
+    font-weight: 700;
+    @media only all {
+      font-size: 24px;
     }
   }
 
