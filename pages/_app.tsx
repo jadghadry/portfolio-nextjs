@@ -4,14 +4,14 @@ import { Layout } from "_/components/Layout";
 import { GlobalStyle } from "_/styles/global";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <GlobalStyle />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
-  );
+    return (
+        <>
+            <GlobalStyle />
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </>
+    );
 }
 
 export default MyApp;

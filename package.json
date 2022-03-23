@@ -1,36 +1,36 @@
 {
-  "name": "portfolio-nextjs",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "antd": "^4.19.3",
-    "babel-preset-next": "^1.4.0",
-    "graphql-request": "^4.1.0",
-    "install": "^0.13.0",
-    "lodash": "^4.17.21",
-    "moment": "^2.29.1",
-    "next": "12.1.0",
-    "npm": "^8.5.5",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "styled-components": "^5.3.3",
-    "uuid": "^8.3.2"
-  },
-  "devDependencies": {
-    "@types/lodash": "^4.14.180",
-    "@types/node": "17.0.22",
-    "@types/react": "17.0.41",
-    "@types/styled-components": "^5.1.24",
-    "@types/uuid": "^8.3.4",
-    "babel-plugin-styled-components": "^2.0.6",
-    "eslint": "8.11.0",
-    "eslint-config-next": "12.1.0",
-    "typescript": "4.6.2"
-  }
+    "name": "portfolio-nextjs",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "antd": "^4.19.3",
+        "babel-preset-next": "^1.4.0",
+        "graphql-request": "^4.1.0",
+        "install": "^0.13.0",
+        "lodash": "^4.17.21",
+        "moment": "^2.29.1",
+        "next": "12.1.0",
+        "npm": "^8.5.5",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "styled-components": "^5.3.3",
+        "uuid": "^8.3.2"
+    },
+    "devDependencies": {
+        "@types/lodash": "^4.14.180",
+        "@types/node": "17.0.22",
+        "@types/react": "17.0.41",
+        "@types/styled-components": "^5.1.24",
+        "@types/uuid": "^8.3.4",
+        "babel-plugin-styled-components": "^2.0.6",
+        "eslint": "8.11.0",
+        "eslint-config-next": "12.1.0",
+        "typescript": "4.6.2"
+    }
 }
