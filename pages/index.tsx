@@ -4,19 +4,18 @@ import type { GetStaticProps, NextPage } from "next";
 import { CardService } from "_/components/cards/CardService";
 import { FlexContainer } from "_/components/FlexContainer";
 import { Heading } from "_/components/Heading";
+import { Timeline } from "_/components/Timeline";
+import { Service, TimelineEntry } from "_/types/global";
 import { OverlayedParallax } from "_/wrappers/OverlayedParallax";
 import { ResponsiveContainer } from "_/wrappers/ResponsiveContainer";
 
 type IndexProps = {
-  services: {
-    description: string;
-    icon: string;
-    id: string;
-    title: string;
-  }[];
+  educationEntries: TimelineEntry[];
+  services: Service[];
+  workEntries: TimelineEntry[];
 };
 
-const Index: NextPage<IndexProps> = ({ services }: IndexProps) => {
+const Index: NextPage<IndexProps> = ({ educationEntries, services, workEntries }: IndexProps) => {
   return (
     <>
       <section id="landing">
@@ -55,7 +54,16 @@ const Index: NextPage<IndexProps> = ({ services }: IndexProps) => {
             />
           </FlexContainer>
         </OverlayedParallax>
-        <ResponsiveContainer></ResponsiveContainer>
+        <ResponsiveContainer>
+          <Row gutter={[40, 40]}>
+            <Col xs={24} lg={12}>
+              <Timeline data={workEntries} icon="fas fa-briefcase" title="Work" />
+            </Col>
+            <Col xs={24} lg={12}>
+              <Timeline data={educationEntries} icon="fas fa-graduation-cap" title="Education" />
+            </Col>
+          </Row>
+        </ResponsiveContainer>
       </section>
       <section id="services">
         <OverlayedParallax backgroundImage="https://source.unsplash.com/aOC7TSLb1o8/2400x1714">
@@ -87,13 +95,27 @@ const Index: NextPage<IndexProps> = ({ services }: IndexProps) => {
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
   const endpoint = `https://api-eu-central-1.graphcms.com/v2/cl13cmj6pbn7001yw1nlka2qd/master`;
   const graphcms = new GraphQLClient(endpoint);
-  const { services } = await graphcms.request(
+  const { educationEntries, services, workEntries } = await graphcms.request(
     `
     {
+      educationEntries(orderBy:startDate_DESC) {
+        bulletPoints
+        endDate
+        id
+        startDate
+        title
+      }
       services {
         description
         icon
         id
+        title
+      }
+      workEntries(orderBy:startDate_DESC) {
+        bulletPoints
+        endDate
+        id
+        startDate
         title
       }
     }
@@ -102,7 +124,9 @@ export const getStaticProps: GetStaticProps<IndexProps> = async () => {
 
   return {
     props: {
+      educationEntries,
       services,
+      workEntries,
     },
   };
 };
